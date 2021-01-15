@@ -1,0 +1,135 @@
+:root {
+  /* ! Principle/ceoncept in mind
+   * The bigger the number, the thicker the font weights '
+   * The smaller the number, the more thin the font is
+   */
+  --clr-primary-200: #f3eed9;
+  --clr-primary-400: #824936;
+
+  --clr-neutral-100: #fff;
+  --clr-neutral-900: #222c2a;
+
+  --ff-primary: 'Roboto', sans-serif;
+  --ff-accent: 'Playfire Display', serif;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-weight: 400;
+  font-weight: 1.3125rem;
+  line-height: 1.6;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--clr-primary-400);
+  font-family: var(--ff-accent);
+  font-weight: 900;
+  line-height: 1;
+}
+
+h2,
+h3,
+p {
+  margin-bottom: 1em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+header,
+section {
+  padding: 3rem 0;
+}
+
+@media (min-width: 40em) {
+  header,
+  section {
+    padding: 4rem 0;
+  }
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+    em are more consistent between browsers when people are zooming in and out 
+    Article to read: https://zellwk.com/blog/media-query-units/
+*/
+@media (min-width: 40em) {
+  .split {
+    flex-direction: row;
+  }
+  /**
+    * Flex basis is to set ideal width that you want something to be
+    * Because both of them wants to be 100%, they both want to be the same size. Flex is going to shrink them down
+    * To make them fit into columns, because it's a flex diretion of row. It just makes it balances them out, 
+    * since they are both supposed to be the same size. They are both supposed to be 100. Flex needs to shrink them to make everything work
+    * because defalt flex is it things are allowed to shrink. They always srink at the same. They are both set anyways by default they have a shrink of the same rate,
+    * so they end up being the same size.
+    **/
+  .split > * {
+    flex-basis: 100%;
+  }
+
+  /* 
+   * This is adjacent sibling selector. It means any element that has a sibling before it.
+   * It's like checking first we have a div element, and before that it has another div. (from line 23 to 41 HTML file)
+  */
+  .split > * + * {
+    margin-left: 2em;
+  }
+}
+
+.container {
+  /* This will be your left and right margin only. */
+  margin-inline: auto;
+  width: min(90%, 70.5rem);
+}
+
+.container--narrow {
+  max-width: 34rem;
+}
+
+.bg-light {
+  background-color: var(--clr-primary-200);
+}
+
+.bg-primary {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-400);
+}
+
+.bg-dark {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-900);
+}
+
+.bg-primary h2,
+.bg-dark h2 {
+  color: var(--clr-primary-200);
+}
